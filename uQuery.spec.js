@@ -37,6 +37,11 @@ describe('uQuery', function () {
       var color = document.getElementById('foo').style.color;
       expect(color).to.equal('red');
     });
+
+    it('should return an instance of uQuery', function () {
+      var uQ = uQuery('#foo').makeRed();
+      expect(uQ).to.be.an.instanceof(uQuery);
+    });
   });
 
   describe('makeBold', function () {
@@ -44,6 +49,11 @@ describe('uQuery', function () {
       uQuery('#foo').makeBold();
       var fontWeight = document.getElementById('foo').style.fontWeight;
       expect(fontWeight).to.equal('bold');
+    });
+
+    it('should return an instance of uQuery', function () {
+      var uQ = uQuery('#foo').makeRed();
+      expect(uQ).to.be.an.instanceof(uQuery);
     });
   });
 });

@@ -11,15 +11,16 @@
     }
 
     uQuery.prototype.makeRed = function () {
-        this._each(this._styleTransform('color', 'red'));
+        return this._each(this._styleTransform('color', 'red'));
     };
 
     uQuery.prototype.makeBold = function () {
-        this._each(this._styleTransform('fontWeight', 'bold'));
+        return this._each(this._styleTransform('fontWeight', 'bold'));
     };
 
     uQuery.prototype._each = function (fn) {
         _forEach.call(this._nodeList, fn);
+        return this;
     };
 
     uQuery.prototype._styleTransform = function (prop, value) {
