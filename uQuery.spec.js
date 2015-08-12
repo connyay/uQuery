@@ -2,6 +2,9 @@
 var expect = chai.expect;
 
 describe('uQuery', function () {
+
+  beforeEach(resetFixtures);
+
   describe('constructor', function () {
     it('should return an instance of uQuery', function () {
       var uQ = new uQuery();
@@ -27,4 +30,23 @@ describe('uQuery', function () {
       expect(uQ._nodeList).to.have.length(3);
     });
   });
+
+  describe('makeRed', function () {
+    it('should make an elements text color red', function () {
+      uQuery('#foo').makeRed();
+      var color = document.getElementById('foo').style.color;
+      expect(color).to.equal('red');
+    });
+  });
 });
+
+
+function resetFixtures() {
+  var fixtures = document.getElementById('fixtures');
+  var i = 0,
+    len = fixtures.children.length;
+  for (; i < len; i++) {
+    var child = fixtures.children[0];
+    child.removeAttribute('style');
+  }
+}
