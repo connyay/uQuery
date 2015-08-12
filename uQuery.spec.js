@@ -23,13 +23,13 @@ describe('uQuery', function () {
     it('should support an id selector', function () {
       var uQ = uQuery('#foo');
       expect(uQ._nodeList).to.be.an.instanceof(NodeList);
-      expect(uQ._nodeList).to.have.length(1);
+      expect(uQ.length).to.equal(1);
     });
 
     it('should support a class selector', function () {
       var uQ = uQuery('.bar');
       expect(uQ._nodeList).to.be.an.instanceof(NodeList);
-      expect(uQ._nodeList).to.have.length(3);
+      expect(uQ.length).to.equal(3);
     });
   });
 

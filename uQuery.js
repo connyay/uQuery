@@ -14,6 +14,7 @@
             return new uQuery(selector);
         }
         this._nodeList = document.querySelectorAll(selector);
+        this.length = this._nodeList.length;
     }
 
     /**
