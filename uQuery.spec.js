@@ -1,6 +1,8 @@
 'use strict';
 var expect = chai.expect;
 
+var _forEach = Array.prototype.forEach;
+
 describe('uQuery', function () {
 
   beforeEach(resetFixtures);
@@ -38,6 +40,17 @@ describe('uQuery', function () {
       expect(color).to.equal('red');
     });
 
+    it('should multiple elements text color red', function () {
+      uQuery('.bar').makeRed();
+      var called = 0;
+      _forEach.call(document.querySelectorAll('.bar'), function (el) {
+        var color = el.style.color;
+        expect(color).to.equal('red');
+        called++;
+      });
+      expect(called).to.equal(3);
+    });
+
     it('should return an instance of uQuery', function () {
       var uQ = uQuery('#foo').makeRed();
       expect(uQ).to.be.an.instanceof(uQuery);
@@ -51,6 +64,17 @@ describe('uQuery', function () {
       expect(fontWeight).to.equal('bold');
     });
 
+    it('should multiple elements font weight bold', function () {
+      uQuery('.bar').makeBold();
+      var called = 0;
+      _forEach.call(document.querySelectorAll('.bar'), function (el) {
+        var fontWeight = el.style.fontWeight;
+        expect(fontWeight).to.equal('bold');
+        called++;
+      });
+      expect(called).to.equal(3);
+    });
+
     it('should return an instance of uQuery', function () {
       var uQ = uQuery('#foo').makeRed();
       expect(uQ).to.be.an.instanceof(uQuery);
@@ -61,10 +85,7 @@ describe('uQuery', function () {
 
 function resetFixtures() {
   var fixtures = document.getElementById('fixtures');
-  var i = 0,
-    len = fixtures.children.length;
-  for (; i < len; i++) {
-    var child = fixtures.children[0];
-    child.removeAttribute('style');
-  }
+  _forEach.call(fixtures.children, function (el) {
+    el.removeAttribute('style');
+  });
 }
