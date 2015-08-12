@@ -19,7 +19,11 @@
     };
 
     uQuery.prototype.getValue = function () {
-        return this._nodeList[0].value;
+        var results = [];
+        this._each(function (e) {
+            results.push(e.value);
+        });
+        return results;
     };
 
     uQuery.prototype._each = function (fn) {
