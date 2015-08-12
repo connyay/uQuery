@@ -106,9 +106,19 @@ describe('uQuery', function () {
   });
 
   describe('getValue', function () {
-    it('should get the values from an multiple inputs', function () {
+    it('should get the value from an input', function () {
+      var result = uQuery('#mockinput').getValue();
+      expect(result).to.equal('24');
+    });
+
+    it('should get the values from multiple inputs', function () {
       var result = uQuery('.foobar').getValue();
       expect(result).to.deep.equal(['40', '42']);
+    });
+
+    it('should return null if no inputs found', function () {
+      var result = uQuery('#notreal').getValue();
+      expect(result).to.equal(null);
     });
   });
 });

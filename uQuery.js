@@ -19,6 +19,13 @@
     };
 
     uQuery.prototype.getValue = function () {
+        if (!this._nodeList.length) {
+            return null;
+        }
+        if (this._nodeList.length === 1) {
+            var elem = this._nodeList[0];
+            return elem.value || null;
+        }
         var results = [];
         this._each(function (e) {
             results.push(e.value);
