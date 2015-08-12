@@ -106,9 +106,9 @@ describe('uQuery', function () {
   });
 
   describe('getValue', function () {
-    it('should get the value from an input', function () {
-      var value = uQuery('.foobar').getValue();
-      expect(value).to.equal('42');
+    it('should get the values from an multiple inputs', function () {
+      var result = uQuery('.foobar').getValue();
+      expect(result).to.deep.equal(['40', '42']);
     });
   });
 });
