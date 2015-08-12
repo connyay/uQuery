@@ -80,6 +80,30 @@ describe('uQuery', function () {
       expect(uQ).to.be.an.instanceof(uQuery);
     });
   });
+
+  describe('chaining', function () {
+    it('should make an elements font weight bold and text color red', function () {
+      uQuery('#foo').makeBold().makeRed();
+      var fooElem = document.getElementById('foo'),
+        color = fooElem.style.color,
+        fontWeight = fooElem.style.fontWeight;
+      expect(fontWeight).to.equal('bold');
+      expect(color).to.equal('red');
+    });
+    it('should make an elements text color red and font weight bold', function () {
+      uQuery('#foo').makeRed().makeBold();
+      var fooElem = document.getElementById('foo'),
+        color = fooElem.style.color,
+        fontWeight = fooElem.style.fontWeight;
+      expect(fontWeight).to.equal('bold');
+      expect(color).to.equal('red');
+    });
+
+    it('should return an instance of uQuery', function () {
+      var uQ = uQuery('#foo').makeBold().makeRed();
+      expect(uQ).to.be.an.instanceof(uQuery);
+    });
+  });
 });
 
 
