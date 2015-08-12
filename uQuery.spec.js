@@ -104,6 +104,13 @@ describe('uQuery', function () {
       expect(uQ).to.be.an.instanceof(uQuery);
     });
   });
+
+  describe('getValue', function () {
+    it('should get the value from an input', function () {
+      var value = uQuery('.foobar').getValue();
+      expect(value).to.equal('42');
+    });
+  });
 });
 
 
