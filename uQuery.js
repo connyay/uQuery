@@ -18,6 +18,10 @@
         return this._each(this._styleTransform('fontWeight', 'bold'));
     };
 
+    uQuery.prototype.getValue = function () {
+        return this._nodeList[0].value;
+    };
+
     uQuery.prototype._each = function (fn) {
         _forEach.call(this._nodeList, fn);
         return this;
