@@ -9,8 +9,22 @@ describe('uQuery', function () {
     });
 
     it('should optionally require the new keyword', function () {
-      var uQ2 = uQuery();
-      expect(uQ2).to.be.an.instanceof(uQuery);
+      var uQ = uQuery();
+      expect(uQ).to.be.an.instanceof(uQuery);
+    });
+  });
+
+  describe('selectors', function () {
+    it('should support an id selector', function () {
+      var uQ = uQuery('#foo');
+      expect(uQ._nodeList).to.be.an.instanceof(NodeList);
+      expect(uQ._nodeList).to.have.length(1);
+    });
+
+    it('should support a class selector', function () {
+      var uQ = uQuery('.bar');
+      expect(uQ._nodeList).to.be.an.instanceof(NodeList);
+      expect(uQ._nodeList).to.have.length(3);
     });
   });
 });

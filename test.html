@@ -4,11 +4,21 @@
     <meta charset="utf-8">
     <title>uQuery tests</title>
     <link rel="stylesheet" media="all" href="http://cdnjs.cloudflare.com/ajax/libs/mocha/2.2.5/mocha.min.css">
+    <style>
+      #fixtures {
+        position: absolute;
+        left: -10000px;
+      }
+    </style>
   </head>
   <body>
     <div id="mocha"></div>
-    <div id="messages"></div>
-    <div id="fixtures"></div>
+    <div id="fixtures">
+      <div id="foo"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/mocha/2.2.5/mocha.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/chai/3.2.0/chai.js"></script>
     <script>mocha.setup('bdd');</script>
