@@ -38,6 +38,14 @@ describe('uQuery', function () {
       expect(color).to.equal('red');
     });
   });
+
+  describe('makeBold', function () {
+    it('should make an elements font weight bold', function () {
+      uQuery('#foo').makeBold();
+      var fontWeight = document.getElementById('foo').style.fontWeight;
+      expect(fontWeight).to.equal('bold');
+    });
+  });
 });
 
 

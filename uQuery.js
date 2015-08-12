@@ -16,5 +16,11 @@
         });
     };
 
+    uQuery.prototype.makeBold = function () {
+        _forEach.call(this._nodeList, function (el) {
+            el.style.fontWeight = 'bold';
+        });
+    };
+
     window.uQuery = uQuery;
 })();
