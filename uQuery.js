@@ -11,15 +11,21 @@
     }
 
     uQuery.prototype.makeRed = function () {
-        _forEach.call(this._nodeList, function (el) {
-            el.style.color = 'red';
-        });
+        this._each(this._styleTransform('color', 'red'));
     };
 
     uQuery.prototype.makeBold = function () {
-        _forEach.call(this._nodeList, function (el) {
-            el.style.fontWeight = 'bold';
-        });
+        this._each(this._styleTransform('fontWeight', 'bold'));
+    };
+
+    uQuery.prototype._each = function (fn) {
+        _forEach.call(this._nodeList, fn);
+    };
+
+    uQuery.prototype._styleTransform = function (prop, value) {
+        return function (elem) {
+            elem.style[prop] = value;
+        };
     };
 
     window.uQuery = uQuery;
